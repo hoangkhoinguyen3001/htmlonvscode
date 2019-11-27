@@ -1,10 +1,1 @@
- Volume in drive C is Windows 7
- Volume Serial Number is 6834-FC88
-
- Directory of C:\Users\Administrator\Desktop\vscodehtml1
-
-27/11/2019  11:25 CH    <DIR>          .
-27/11/2019  11:25 CH    <DIR>          ..
-27/11/2019  11:25 CH                 0 test.txt
-               1 File(s)              0 bytes
-               2 Dir(s)   4.655.603.712 bytes free
+hello world
