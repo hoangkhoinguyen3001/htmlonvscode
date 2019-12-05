@@ -25,12 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         $msg['alert_mess'] = "Xử lý form thất bại";
         $_SESSION['msg'] = $msg;
         $query_string = http_build_query($_GET);
-        header("Location: http://localhost/demo_4/form_get.php?{$query_string}");
+        header("Location: http://localhost:8080/vscodehtml/htmlonvscode/demo4/form_get.php?{$query_string}");
         die();
     } else {
         $msg['alert_status'] = $is_successed;
         $msg['alert_mess'] = "Xử lý form thành công";
-        header("Location: http://localhost/demo_4/form_get.php");
+        header("Location: http://localhost:8080/vscodehtml/htmlonvscode/demo4/form_get.php");
     }
 }
 

@@ -15,7 +15,7 @@ if(isset($msg) && !empty($msg['alert_mess'])) {
 }
 ?>
 
-<form action="http://localhost/demo_4/msg_get.php" method="get">
+<form action="http://localhost:8080/vscodehtml/htmlonvscode/demo4/msg_get.php" method="GET">
 Name: <input type="text" name="name" value="<?=isset($_GET['name']) ? $_GET['name'] : ""?>">
 <span><?=isset($msg['name']) ? $msg['name'] : "" ?></span>
 <br>

@@ -37,7 +37,7 @@ if(isset($msg) && !empty($msg['alert_mess'])) {
 }
 ?>
 
-<form action="http://localhost/demo_4/form_post.php" method="post">
+<form action="http://localhost:8080/vscodehtml/htmlonvscode/demo4/form_post.php" method="post">
 Name: <input type="text" name="name" value="<?=isset($_POST['name']) ? $_POST['name'] : ""?>">
 <span><?=isset($msg['name']) ? $msg['name'] : "" ?></span>
 <br>
