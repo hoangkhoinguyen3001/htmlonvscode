@@ -26,7 +26,7 @@ if(isset($msg) && !empty($msg['msg'])) {
 }
 ?>
 
-<form action="http://localhost:8080/demo4/form_postatclass.php" method="post">
+<form action="http://localhost:8080/vscodehtml/htmlonvscode/demo4/form_postatclass.php" method="post">
 Name: <input type="text" name="name" value="">
 <span><?=isset($msg) && !empty($msg['name']) ? $msg['name'] : "" ?></span>
 <br>
