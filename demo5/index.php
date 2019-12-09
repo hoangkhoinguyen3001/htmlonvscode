@@ -16,11 +16,11 @@ $dbname = "myDB";
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
 // Check connection
-if (!$conn) {
+/*if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 // Create database(1)
-/*$sql = "CREATE DATABASE myDB";
+$sql = "CREATE DATABASE myDB";
 if (mysqli_query($conn, $sql)) {
     echo "Database created successfully";
 } else {
@@ -64,15 +64,16 @@ if (mysqli_query($conn, $sql)) {
 }*/
 
 //insert multiple 
-//$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-//VALUES ('John', 'Doe', 'john@example.com')";
 /*$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com');";
+$sql .= "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('Mary', 'Moe', 'mary@example.com');";
 $sql .= "INSERT INTO MyGuests (firstname, lastname, email)
 VALUES ('Julie', 'Dooley', 'julie@example.com')";
 
 if (mysqli_multi_query($conn, $sql)) {
-    echo "New records created successfully";
+    $last_id = mysqli_insert_id($conn);
+    echo "New records created successfully. Last inserted ID is:". $last_id;
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }*/
