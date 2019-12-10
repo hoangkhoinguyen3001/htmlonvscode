@@ -11,13 +11,14 @@ if (mysqli_num_rows($result) > 0) {
         $_data[] = $row;
         
     }
-    var_dump($_data);
+    //var_dump($_data);
 } 
+mysqli_close($conn);
 ?>
 <style>
-    table, th, td{boder: 1px solid  }
+    table, th, td{border: 1px solid black };
 </style>
-<button>ADD</button>
+<button><a href="create.php">ADD</a></button>
 <table>
     <tr>
         <th>ID</th>
@@ -31,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
         <td><?=$value['name']?></td>
         <td><?=$value['quanlity']?></td>
         <td><?=$value['status'] == 1 ?"active" : "deactive"?></td>
-        <td><a href="">View</a>|| Edit || Delete</td>
+        <td><a href="<?="view.php?id={$value['id']}"?>">View</a>|| Edit || Delete</td>
     </tr>
     <?php endforeach?>
 </table>
