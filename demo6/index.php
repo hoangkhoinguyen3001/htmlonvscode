@@ -7,8 +7,8 @@
 
 
 function conn_db(){
-    ini_set('mysql.connect_timeout', 300);
-    ini_set('default_socket_timeout', 300);
+    //ini_set('mysql.connect_timeout', 300);
+    //ini_set('default_socket_timeout', 300);
     $servername = "localhost";
     $username = "root";
     $password = "";

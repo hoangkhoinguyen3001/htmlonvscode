@@ -1,5 +1,7 @@
 <?php
+// not require that the system not notify error  
  require "./index.php";
+ // the $conn will contain the value of conn_db function(check connect to database is true or false)
  $conn = conn_db();
  $sql = "SELECT id,name,quanlity, status FROM product";
  $result = mysqli_query($conn, $sql);
@@ -32,7 +34,7 @@ mysqli_close($conn);
         <td><?=$value['name']?></td>
         <td><?=$value['quanlity']?></td>
         <td><?=$value['status'] == 1 ?"active" : "deactive"?></td>
-        <td><a href="<?="view.php?id={$value['id']}"?>">View</a>|| Edit || Delete</td>
+        <td><a href="<?="view.php?id={$value['id']}"?>">View</a>|| Edit || <a href="<?="delete.php?id={$value['id']}"?>">Delete</a></td>
     </tr>
     <?php endforeach?>
 </table>

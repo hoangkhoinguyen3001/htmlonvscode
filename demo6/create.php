@@ -39,6 +39,7 @@ if($_SERVER ["REQUEST_METHOD"] == "POST"){
         }
         ///
         mysqli_close($conn);
+        //set back variable in null to next add
         $name = $number = $status = "";
     }
 }
