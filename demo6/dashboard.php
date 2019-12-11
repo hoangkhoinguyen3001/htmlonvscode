@@ -34,7 +34,11 @@ mysqli_close($conn);
         <td><?=$value['name']?></td>
         <td><?=$value['quanlity']?></td>
         <td><?=$value['status'] == 1 ?"active" : "deactive"?></td>
-        <td><a href="<?="view.php?id={$value['id']}"?>">View</a>|| <a href="edit.php">Edit</a> || <a href="<?="update.php?id={$value['id']}"?>">Delete</a></td>
+        <td>
+        <a href="<?="view.php?id={$value['id']}"?>">View</a>||
+        <a href="<?="update.php?id={$value['id']}"?>">Edit</a> ||
+        <a href="<?="delete.php?id={$value['id']}"?>">Delete</a>
+        </td>
     </tr>
     <?php endforeach?>
 </table>

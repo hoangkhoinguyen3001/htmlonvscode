@@ -1,21 +1,38 @@
 <?php
 require "./index.php";
+
 $conn = conn_db();
-if(isset($_GET['id'])&& $_GET['id'] > 0){
-    $id = $_GET['id'];
-    $sql = "DELETE FROM product WHERE id = {$id} and status = 1";
-    //$sql = "SELECT * FROM product WHERE id = {$id} and status = 1";
-    //"DELETE FROM MyGuests WHERE id = {$id} and status = 1";
+
+$id = @$_GET['id'];
+
+if(isset($_GET['id']) && !empty($_GET['id'])) {
+    $sql = "SELECT * FROM product WHERE id = {$id}";
+
     $result = mysqli_query($conn, $sql);
-    if (mysqli_query($conn, $sql)) {
-        echo "Record deleted successfully";
+
+    // check logic co ton tai 1 record
+    if (mysqli_num_rows($result) > 0) {
+        // viet cau sql xoa record
+        // sql to delete a record
+        $sql = "DELETE FROM product WHERE id={$id}";
+        if (mysqli_query($conn, $sql)) {
+            header("Location:http://localhost/vscodehtml/htmlonvscode/demo6/dashboard.php");
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
+        }
+
     } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+        // khong tim thay record
+        header("Location: http://www.google.com/");
+        die();
     }
-        //var_dump($row);
-}else{
-    header("Location: http://www.google.com/");
-    die();
 }
-mysqli_close($conn);
+
+// $sql = "SELECT * FROM product WHERE id = {$id}";
+// $result = mysqli_query($conn, $sql);
+// lay id => check co data
+
+// neu co => xoa
+
+// quay ve dashboard
 ?>
