@@ -1,12 +1,10 @@
 <?php
 require "./index.php";
 $conn = conn_db();
-// neu submit form thi vao if
 $sql_err ="";
 $nameErr = $numberErr = $statusErr = "";
 $name = $number = $status = "";
 if($_SERVER ["REQUEST_METHOD"] == "POST"){
-    //var_dump($_POST);
     if(isset($_POST["name"]) && !empty($_POST["name"])) {
         $name = $_POST["name"];
     } else {
@@ -27,32 +25,23 @@ if($_SERVER ["REQUEST_METHOD"] == "POST"){
 
     // xu ly add vao mysql
     if(empty($nameErr) && empty($numberErr) && empty($statusErr)) {
-        /// viet sql
         $sql = "UPDATE product SET product.name='{$name}',product.quanlity={$number},product.`status`={$status} WHERE id={$_POST['id']}";
 
         if (mysqli_query($conn, $sql)) {
-            header("Location: http://localhost:8080/vscodehtml/htmlonvscode/demo6/dashboard.php");
-            // $last_id = mysqli_insert_id($conn);
-            // $sql_err = "Add successed <a href='view.php?id={$last_id}' target='_blank'>new item</a>";
+            header("Location: http://localhost:8080/vscodehtml/htmlonvscode/thuchanh/dashboard.php");
+            
         } else {
             var_dump(mysqli_error($conn));
             die("false");
-            // header("Location: http://localhost/demo_5/update.php?id=1");
-            // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            // $sql_err = "Add Fail";
         }
-        //set back variable in null to next add
         $name = $number = $status = "";
     }
 }
 // check logic
-// $_REQUEST['id'];
 $id = 0;
 $row = "";
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
-
-    // lay data voi id = ?
 
     // viet cau sql
     $sql = "SELECT * FROM product WHERE id = {$_GET['id']}";
@@ -77,10 +66,6 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 
 
 mysqli_close($conn);
-?>
-<?php //echo $sql_err?>
-}
-//var_dump($_SERVER)
 ?>
 <form method="POST" action="update.php?id=<?=$row['id']?>">
     NAME:<input type="text" name="name" value="<?=$row['name']?>"><span><?=''?></span>

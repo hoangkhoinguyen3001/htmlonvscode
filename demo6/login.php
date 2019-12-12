@@ -1,4 +1,5 @@
 <?php
+// https://www.ddth.com/showthread.php/54195-tutor-t%E1%BA%A1o-trang-%C4%91%C4%83ng-nh%E1%BA%ADp-ph%C3%A2n-quy%E1%BB%81n
 session_start();
 require "./index.php";
 $conn = conn_db();
@@ -12,7 +13,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if($username == $__user && $__pass == md5($pass)) {
         // login thanh cong => vao dashbord;
-        header("Location: http://localhost/vscodehtml/htmlonvscode/demo6/dashboard.php");
+        header("Location: http://localhost:8080/vscodehtml/htmlonvscode/demo6/dashboard.php");
+        
     } else {
         // false
         $mgs = "Username or password is wrong";
@@ -20,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // ban user vao prodcut_demo.sql lay
     //$sql = "SELECT * FROM user WHERE user_name = {$username}";
     // // mysqli_num_rows == 0 ko co user
-    // // mysqli_num_rows > 1 ton tai nhiu user co ung user_name
+    // // mysqli_num_rows > 1 ton tai nhiu user co cung user_name
     // // mysqli_num_rows == 1 dang nhap thanh cong
     //if (mysqli_num_rows($result) == 1) {
     // $row = mysqli_fetch_assoc($result);
